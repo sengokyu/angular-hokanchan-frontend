@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "hokanchan"
+    }
+  },
+  "defaultProject": "hokanchan",
+  "cli": {
+    "analytics": false
+  }
 }
