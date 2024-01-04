@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatLegacyProgressBarModule as MatProgressBarModule } from '@angular/material/legacy-progress-bar';
 import { BehaviorSubject } from 'rxjs';
 import { LoadingIndicatorComponent } from './loading-indicator.component';
 import { LoadingIndicatorService } from './loading-indicator.service';

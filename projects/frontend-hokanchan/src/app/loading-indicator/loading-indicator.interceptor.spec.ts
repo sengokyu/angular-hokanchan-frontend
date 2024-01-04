@@ -5,7 +5,7 @@ import {
 } from '@angular/common/http/testing';
 import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 import { LOADING_INDICATOR_INTERCEPTOR_PROVIDERS } from './loading-indicator.interceptor';
 import { LoadingIndicatorService } from './loading-indicator.service';
 
