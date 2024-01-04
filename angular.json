@@ -119,7 +119,6 @@
       }
     }
   },
-  "defaultProject": "hokanchan",
   "cli": {
     "analytics": false
   }
