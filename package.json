@@ -4,7 +4,7 @@
   "description": "This is a sample template for hokanchan - Below is a brief explanation of what we have generated for you:",
   "private": true,
   "dependencies": {
-    "@angular/animations": "^11.2.14",
+    "@angular/animations": "~11.2.14",
     "@angular/cdk": "^11.2.13",
     "@angular/common": "~11.2.14",
     "@angular/compiler": "~11.2.14",
