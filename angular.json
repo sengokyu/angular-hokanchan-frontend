@@ -73,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "frontend-hokanchan:build"
+            "buildTarget": "frontend-hokanchan:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "frontend-hokanchan:build:production"
+              "buildTarget": "frontend-hokanchan:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontend-hokanchan:build"
+            "buildTarget": "frontend-hokanchan:build"
           }
         },
         "test": {
