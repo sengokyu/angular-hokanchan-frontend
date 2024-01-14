@@ -1,18 +1,9 @@
-<form
-  (ngSubmit)="onSubmit()"
-  fxLayout="column"
-  fxLayoutAlign="center center"
-  fxLayoutGap="0.5"
->
-  <mat-form-field appearance="standard">
-    <input
-      name="queryWord"
-      matInput
-      placeholder="補完する語を入力……"
-      required
-      [(ngModel)]="queryWord"
-    />
+<form (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input name="queryWord" matInput placeholder="補完する語を入力……" required [(ngModel)]="queryWord" />
     <mat-icon matPrefix>search</mat-icon>
   </mat-form-field>
-  <button type="submit" mat-stroked-button color="primary">検索</button>
+  <div>
+    <button type="submit" mat-stroked-button color="primary">検索</button>
+  </div>
 </form>

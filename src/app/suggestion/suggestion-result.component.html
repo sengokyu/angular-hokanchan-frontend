@@ -1,4 +1,4 @@
-<div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="16px">
+<div>
   <!-- 検索結果 -->
   <mat-card *ngFor="let suggestion of suggestions$ | async">
     <mat-card-title>{{ suggestion.letter }}</mat-card-title>

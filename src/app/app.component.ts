@@ -1,8 +1,17 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { LoadingIndicatorComponent } from "./loading-indicator/loading-indicator.component";
+import { SuggestionResultComponent } from "./suggestion/suggestion-result.component";
+import { SuggestionComponent } from "./suggestion/suggestion.component";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  selector: "app-root",
+  standalone: true,
+  imports: [
+    LoadingIndicatorComponent,
+    SuggestionComponent,
+    SuggestionResultComponent,
+  ],
+  templateUrl: "./app.component.html",
   styles: [
     `
       app-loading-indicator {
@@ -11,7 +20,7 @@ import { Component } from '@angular/core';
         left: 0;
         width: 100%;
       }
-    `
-  ]
+    `,
+  ],
 })
 export class AppComponent {}

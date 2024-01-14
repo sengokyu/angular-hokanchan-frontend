@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 
 declare var ga: any;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class GoogleAnalyticsService {
   constructor(private router: Router) {}
@@ -14,10 +14,10 @@ export class GoogleAnalyticsService {
       return;
     }
 
-    ga('send', { hitType: 'pageview', page: this.router.url });
+    ga("send", { hitType: "pageview", page: this.router.url });
   }
 
   private isAvailable(): boolean {
-    return window && typeof window['ga'] !== undefined;
+    return window && "ga" in window;
   }
 }

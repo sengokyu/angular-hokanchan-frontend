@@ -1,18 +1,32 @@
-import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
+import { Component, OnInit } from "@angular/core";
 
-import { SuggestionService } from './suggestion.service';
-import { ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs/operators';
-import { GoogleAnalyticsService } from '../google-analytics.service';
+import { FormsModule } from "@angular/forms";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { ActivatedRoute } from "@angular/router";
+import { filter } from "rxjs/operators";
+import { GoogleAnalyticsService } from "../google-analytics.service";
+import { SuggestionService } from "./suggestion.service";
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
-  selector: 'app-suggestion',
-  templateUrl: './suggestion.component.html'
+  selector: "app-suggestion",
+  standalone: true,
+  imports: [
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+  ],
+  providers: [GoogleAnalyticsService, SuggestionService],
+  templateUrl: "./suggestion.component.html",
 })
 export class SuggestionComponent implements OnInit {
   readonly suggestions$ = this.suggestionService.suggestions$;
-  queryWord = '';
+  queryWord: string | null = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -23,15 +37,15 @@ export class SuggestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParamMap
-      .pipe(filter(params => params.has('q')))
-      .subscribe(params => {
-        this.queryWord = params.get('q');
+      .pipe(filter((params) => params.has("q")))
+      .subscribe((params) => {
+        this.queryWord = params.get("q");
         this.showResult();
       });
   }
 
   onSubmit(): void {
-    this.location.go('.', `q=${this.queryWord}`);
+    this.location.go(".", `q=${this.queryWord}`);
     this.showResult();
     this.gaService.sendCurrentLocation();
   }
