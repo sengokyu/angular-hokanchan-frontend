@@ -3,117 +3,96 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend-hokanchan": {
+    "hokanchan-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "projects/frontend-hokanchan",
-      "sourceRoot": "projects/frontend-hokanchan/src",
+      "root": "",
+      "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/frontend-hokanchan",
-            "index": "projects/frontend-hokanchan/src/index.html",
-            "main": "projects/frontend-hokanchan/src/main.ts",
-            "polyfills": "projects/frontend-hokanchan/src/polyfills.ts",
-            "tsConfig": "projects/frontend-hokanchan/tsconfig.app.json",
-            "aot": false,
+            "outputPath": "dist/hokanchan-frontend",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/frontend-hokanchan/src/favicon.ico",
-              "projects/frontend-hokanchan/src/assets"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "projects/frontend-hokanchan/src/styles.scss"
+              "src/styles.scss"
             ],
-            "scripts": [],
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/frontend-hokanchan/src/environments/environment.ts",
-                  "with": "projects/frontend-hokanchan/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
-              ]
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "buildTarget": "frontend-hokanchan:build"
-          },
           "configurations": {
             "production": {
-              "buildTarget": "frontend-hokanchan:build:production"
+              "buildTarget": "hokanchan-frontend:build:production"
+            },
+            "development": {
+              "buildTarget": "hokanchan-frontend:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "frontend-hokanchan:build"
+            "buildTarget": "hokanchan-frontend:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/frontend-hokanchan/src/test.ts",
-            "polyfills": "projects/frontend-hokanchan/src/polyfills.ts",
-            "tsConfig": "projects/frontend-hokanchan/tsconfig.spec.json",
-            "karmaConfig": "projects/frontend-hokanchan/karma.conf.js",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/frontend-hokanchan/src/favicon.ico",
-              "projects/frontend-hokanchan/src/assets"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "projects/frontend-hokanchan/src/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/frontend-hokanchan/e2e/protractor.conf.js",
-            "devServerTarget": "frontend-hokanchan:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "frontend-hokanchan:serve:production"
-            }
           }
         }
       }
